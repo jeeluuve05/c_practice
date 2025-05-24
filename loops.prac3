@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+// Simple menu example that asks the user to choose an option
+int main(void) {
+    int choice = 0;
+
+    do {
+        printf("1 --- New\n");
+        printf("2 --- Open file\n");
+        printf("3 --- Close file\n");
+        printf("Please select an option (1-3): ");
+        scanf("%d", &choice);
+    } while (choice < 1 || choice > 3);
+
+    printf("You selected option %d.\n", choice);
+    return 0;
+}
