@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+struct point {
+    int x;
+    int y;
+};
+
+struct rect {
+    struct point p1;
+    struct point p2;
+};
+
+int main(void)
+{
+    struct rect r;
+    int w, h, area, peri;
+
+    printf("Enter coordinates for p1 (x y): ");
+    scanf("%d %d", &r.p1.x, &r.p1.y);
+
+    printf("Enter coordinates for p2 (x y): ");
+    scanf("%d %d", &r.p2.x, &r.p2.y);
+
+    // Calculate width and height
+    w = r.p2.x - r.p1.x;
+    h = r.p1.y - r.p2.y;
+
+    // Convert to positive if negative
+    if (w < 0) w = -w;
+    if (h < 0) h = -h;
+
+    area = w * h;
+    peri = 2 * (w + h);
+
+    printf("Width = %d\n", w);
+    printf("Height = %d\n", h);
+    printf("Area = %d\n", area);
+    printf("Perimeter = %d\n", peri);
+
+    return 0;
+}
