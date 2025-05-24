@@ -1,0 +1,128 @@
+#include <stdio.h>
+#include <math.h>
+
+// Simple Engineering Calculator
+
+// Displays the menu and returns user's choice
+int menu() {
+    int choice;
+    printf("====== Engineering Calculator ======\n");
+    printf("1. Factorial\n");
+    printf("2. Sine\n");
+    printf("3. Log (base 10)\n");
+    printf("4. Square root\n");
+    printf("5. Permutation (nPr)\n");
+    printf("6. Combination (nCr)\n");
+    printf("7. Cosine\n");
+    printf("8. Exit\n");
+    printf("Select an option: ");
+    scanf("%d", &choice);
+    return choice;
+}
+
+// Calculates factorial
+void factorial() {
+    long long n, result = 1;
+    printf("Enter an integer: ");
+    scanf("%lld", &n);
+    if (n < 0) {
+        printf("Error: Factorial is not defined for negative numbers.\n\n");
+        return;
+    }
+    for (long long i = 1; i <= n; i++) {
+        result *= i;
+    }
+    printf("Result = %lld\n\n", result);
+}
+
+// Calculates sine of a value (radians)
+void sine() {
+    double x;
+    printf("Enter angle in radians: ");
+    scanf("%lf", &x);
+    printf("Result = %lf\n\n", sin(x));
+}
+
+// Calculates log base 10
+void logBase10() {
+    double x;
+    printf("Enter a positive number: ");
+    scanf("%lf", &x);
+    if (x <= 0) {
+        printf("Error: Logarithm undefined for zero or negative values.\n\n");
+        return;
+    }
+    printf("Result = %lf\n\n", log10(x));
+}
+
+// Calculates square root
+void squareRoot() {
+    double x;
+    printf("Enter a non-negative number: ");
+    scanf("%lf", &x);
+    if (x < 0) {
+        printf("Error: Square root is not defined for negative numbers.\n\n");
+        return;
+    }
+    printf("Result = %lf\n\n", sqrt(x));
+}
+
+// Calculates permutation nPr
+void permutation() {
+    int n, r;
+    long long fact_n = 1, fact_diff = 1;
+    printf("Enter n and r (n >= r): ");
+    scanf("%d %d", &n, &r);
+    if (n < r || n < 0 || r < 0) {
+        printf("Error: n must be >= r, and both non-negative.\n\n");
+        return;
+    }
+    for (int i = 1; i <= n; i++) fact_n *= i;
+    for (int i = 1; i <= (n - r); i++) fact_diff *= i;
+    printf("Result = %lld\n\n", fact_n / fact_diff);
+}
+
+// Calculates combination nCr
+void combination() {
+    int n, r;
+    long long fact_n = 1, fact_r = 1, fact_diff = 1;
+    printf("Enter n and r (n >= r): ");
+    scanf("%d %d", &n, &r);
+    if (n < r || n < 0 || r < 0) {
+        printf("Error: n must be >= r, and both non-negative.\n\n");
+        return;
+    }
+    for (int i = 1; i <= n; i++) fact_n *= i;
+    for (int i = 1; i <= r; i++) fact_r *= i;
+    for (int i = 1; i <= (n - r); i++) fact_diff *= i;
+    printf("Result = %lld\n\n", fact_n / (fact_r * fact_diff));
+}
+
+// Calculates cosine of a value (radians)
+void cosine() {
+    double x;
+    printf("Enter angle in radians: ");
+    scanf("%lf", &x);
+    printf("Result = %lf\n\n", cos(x));
+}
+
+// Main loop
+int main() {
+    while (1) {
+        int option = menu();
+        switch (option) {
+            case 1: factorial(); break;
+            case 2: sine(); break;
+            case 3: logBase10(); break;
+            case 4: squareRoot(); break;
+            case 5: permutation(); break;
+            case 6: combination(); break;
+            case 7: cosine(); break;
+            case 8:
+                printf("Exiting program.\n");
+                return 0;
+            default:
+                printf("Invalid option. Try again.\n\n");
+        }
+    }
+}
