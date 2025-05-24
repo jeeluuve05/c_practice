@@ -3,14 +3,17 @@
 int main(void)
 {
     int i = 10;
-    int *pi = &i;
+    int *pi = &i;  // Pointer pi points to variable i
 
     printf("i = %d, pi = %p\n", i, (void *)pi);
 
-    (*pi)++; // Increments the value at the address (i becomes 11)
+    (*pi)++;      // Increments the value pointed to by pi (i becomes 11)
     printf("i = %d, pi = %p\n", i, (void *)pi);
 
-    *pi++; // Moves pi to the next int, but doesn't change i
+    *pi++;        // Important: This is NOT the same as (*pi)++
+                  // The ++ operator has higher precedence than *, so this means:
+                  // pi++ (pointer moves to next int), then dereference that new location
+                  // It moves the pointer pi, but DOES NOT change the value of i
     printf("i = %d, pi = %p\n", i, (void *)pi);
 
     return 0;
