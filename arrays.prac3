@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+#define SIZE 7
+
+// Function to increase each element of the array by 1
+void incrementElements(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i]++;
+    }
+}
+
+// Function to display array elements
+void displayArray(const int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%3d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int numbers[SIZE] = {1, 2, 3, 4, 5, 6, 7};
+
+    printf("Array before modification:\n");
+    displayArray(numbers, SIZE);
+
+    incrementElements(numbers, SIZE);
+
+    printf("Array after modification:\n");
+    displayArray(numbers, SIZE);
+
+    return 0;
+}
