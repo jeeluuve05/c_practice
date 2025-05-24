@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Simple program to add two integers
+
+// Function to get an integer from the user
+int readNumber() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    return num;
+}
+
+// Function to return the sum of two numbers
+int sum(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int first, second, result;
+
+    // Get two numbers from the user
+    first = readNumber();
+    second = readNumber();
+
+    // Calculate their sum
+    result = sum(first, second);
+
+    // Display the result
+    printf("The sum is: %d\n", result);
+
+    return 0;
+}
