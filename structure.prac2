@@ -1,0 +1,26 @@
+#include <stdio.h>
+struct student {
+    int number;
+    char name;
+    double grade;
+};
+
+int main(void) 
+{
+    struct student s;
+
+    printf("Student number Enter: ");
+    scanf("%d", &s.number);
+
+    printf("name Enter: ");
+    scanf("%s", s.name);
+
+    printf("Credit Enter (error): ");
+    scanf("%lf", &s.grade);
+
+    printf("\nStudent number: %d\n", s.number);
+    printf("Name: %s\n", s.name);
+    printf("Grade: %.2f\n", s.grade);
+
+    return 0;
+}
