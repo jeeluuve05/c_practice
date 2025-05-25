@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+// Function declarations
+int add(int, int);
+int sub(int, int);
+
+int main(void)
+{
+    int result;
+    int (*pf)(int, int); // Function pointer declaration
+
+    pf = add; // Assign the address of the add() function
+    result = pf(10, 20); // Call the function through the pointer
+    printf("10+20 is %d\n", result);
+
+    pf = sub; // Assign the address of the sub() function
+    result = pf(10, 20); // Call the function through the pointer
+    printf("10-20 is %d\n", result);
+
+    return 0;
+}
+
+// Function definition: addition
+int add(int x, int y)
+{
+    return x + y;
+}
+
+// Function definition: subtraction
+int sub(int x, int y)
+{
+    return x - y;
+}
