@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+struct date {
+    int month;
+    int day;
+    int year;
+};
+
+struct student {
+    int number;
+    char name[20];
+    float grade;
+    struct date *dob;
+};
+
+int main(void)
+{
+    struct date d = {3, 20, 2000};
+    struct student s = {1, "Kim", 4.3};
+
+    s.dob = &d;
+
+    printf("Student number : %d\n", s.number);
+    printf("Name : %s\n", s.name);
+    printf("Grade : %f\n", s.grade);
+    printf("Birth: Year %d month %d day\n", s.dob->year, s.dob->month, s.dob->day);
+
+    return 0;
+}
