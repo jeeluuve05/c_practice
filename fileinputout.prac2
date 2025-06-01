@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(void)
+{
+    if (remove("sample.txt") == -1)
+        printf("sample.txt cannot be deleted.\n");
+    else
+        printf("sample.txt has been deleted.\n");
+
+    return 0;
+}
