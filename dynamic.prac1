@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-//hashib
 int main(void)
 {
     int *list;
